@@ -1,0 +1,1 @@
+This repository contains a COBOL program with a date and time validation error, along with a solution.  The original program fails to properly handle invalid date formats. The corrected program includes more robust validation to ensure correct date and time inputs.
