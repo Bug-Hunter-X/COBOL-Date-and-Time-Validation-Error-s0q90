@@ -1,0 +1,27 @@
+01  WS-AREA. 
+    05  WS-DATE PIC 9(8). 
+    05  WS-TIME PIC 9(6). 
+    05  WS-DATE-REDEF REDEFINES WS-DATE. 
+        10 WS-YEAR PIC 9(4). 
+        10 WS-MONTH PIC 9(2). 
+        10 WS-DAY PIC 9(2). 
+    05  WS-TIME-REDEF REDEFINES WS-TIME. 
+        10 WS-HOUR PIC 9(2). 
+        10 WS-MINUTE PIC 9(2). 
+        10 WS-SECOND PIC 9(2). 
+
+PROCEDURE DIVISION. 
+    DISPLAY "Enter date (YYYYMMDD):" 
+    ACCEPT WS-DATE 
+    DISPLAY "Enter time (HHMMSS):" 
+    ACCEPT WS-TIME 
+
+    IF WS-YEAR > 2024 OR WS-MONTH < 1 OR WS-MONTH > 12 OR WS-DAY < 1 OR WS-DAY > 31 THEN 
+        DISPLAY "Invalid date" 
+    ELSE IF WS-HOUR < 0 OR WS-HOUR > 23 OR WS-MINUTE < 0 OR WS-MINUTE > 59 OR WS-SECOND < 0 OR WS-SECOND > 59 THEN 
+        DISPLAY "Invalid Time" 
+    ELSE 
+        DISPLAY "Valid date and time" 
+    END-IF. 
+
+    STOP RUN.
